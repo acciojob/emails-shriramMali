@@ -38,10 +38,10 @@ public class Email {
                 setPassword(newPassword);
                 System.out.println("Password changed successfully");
             }else{
-                System.out.println("try again.");
+                System.out.println("New password doesn't meet the required criteria. Please try again.");
             }
         }else{
-            System.out.println(" try again.");
+            System.out.println("Old password is incorrect. Please try again.");
         }
 
     }
