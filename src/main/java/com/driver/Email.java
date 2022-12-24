@@ -40,9 +40,10 @@ public class Email {
                                         for (int l = 0; l < newPassword.length(); l++) {
                                             if (!Character.isLetterOrDigit(newPassword.charAt(l))) {
                                                setPassword(newPassword);
-                                                System.out.println(newPassword+" ");
-                                                break;
+                                                System.out.println("Password changed successfully");
+
                                             }
+
                                         }
                                     }
                                 }
