@@ -23,7 +23,7 @@ public class Workspace extends Gmail{
     }
 
     public int getInboxCapacity(){
-        return Integer.MAX_VALUE;
+        return this.inboxCapacity;
     }
     public int findMaxMeetings(){
         // find the maximum number of meetings you can attend

@@ -19,7 +19,7 @@ public class Gmail extends Email {
 
         if(!Inbox.isEmpty() && Inbox.size()>=inboxCapacity){
             Mail  ax=Inbox.get(0);
-            Inbox.remove(Inbox.get(0));
+            Inbox.remove(0);
             Trash.add(ax);
         }
         Inbox.add(new Mail(date,sender,message));
@@ -68,11 +68,17 @@ public class Gmail extends Email {
         //find number of mails in the inbox which are received between given dates
         //It is guaranteed that start date <= end date
         int count = 0;
+        for(Mail mail :Inbox){
+
+            if(mail.getDate().compareTo(start) >=0 &&mail.getDate().compareTo(end) <=0)count++;
+        }
+      /*
+
         for (int i = 0; i < Inbox.size(); i++) {
             Mail temp3 = Inbox.get(i);
             Date x = temp3.getDate();
             if (x.compareTo(start) >= 0 && x.compareTo(end) <= 0) count++;
-        }
+        } */
     return count;
     }
 
@@ -94,7 +100,6 @@ public class Gmail extends Email {
 
     public int getInboxCapacity() {
         // Return the maximum number of mails that can be stored in the inbox
-        int x=this.inboxCapacity;
-        return Math.abs(x-Inbox.size());
+        return this.inboxCapacity;
     }
 }
