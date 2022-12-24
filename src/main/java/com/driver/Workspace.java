@@ -22,6 +22,9 @@ public class Workspace extends Gmail{
 
     }
 
+    public int getInboxCapacity(){
+        return Integer.MAX_VALUE;
+    }
     public int findMaxMeetings(){
         // find the maximum number of meetings you can attend
         // 1. At a particular time, you can be present in at most one meeting
