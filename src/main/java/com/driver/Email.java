@@ -26,9 +26,7 @@ public class Email {
         // 4. It contains at least one digit
         // 5. It contains at least one special character. Any character apart from alphabets and digits is a special character
         if(this.password.equals(newPassword)){
-           // System.out.println(newPassword);
             if(newPassword.length()>=8){
-             //   System.out.println(newPassword);
                 for(int i=0;i<newPassword.length();i++ ){
                     if(Character.isUpperCase(newPassword.charAt(i))){
                         for(int j=0;j<newPassword.length();j++){
