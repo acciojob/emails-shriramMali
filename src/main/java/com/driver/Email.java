@@ -5,6 +5,10 @@ public class Email {
     private String emailId;
     private String password;
 
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
     public Email(String emailId){
         this.emailId = emailId;
         this.password = "Accio@123";
@@ -25,30 +29,21 @@ public class Email {
         // 3. It contains at least one lowercase letter
         // 4. It contains at least one digit
         // 5. It contains at least one special character. Any character apart from alphabets and digits is a special character
-        if(this.password.equals(newPassword)){
-            if(newPassword.length()>=8){
-                for(int i=0;i<newPassword.length();i++ ){
-                    if(Character.isUpperCase(newPassword.charAt(i))){
-                        for(int j=0;j<newPassword.length();j++){
-                            if(Character.isLowerCase(newPassword.charAt(j))){
-                                for(int k=0;k<newPassword.length();k++ ) {
-                                    if (Character.isDigit(newPassword.charAt(k))) {
-                                        for (int l = 0; l < newPassword.length(); l++) {
-                                            if (!Character.isLetterOrDigit(newPassword.charAt(l))) {
-                                                password = newPassword;
-                                                System.out.println(newPassword+" ");
-                                                break;
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
+        if(oldPassword.equals(getPassword())){
+            //check if the new password meets the required criteria
+            if(newPassword.length() >= 8 &&
+                    newPassword.matches(".*[A-Z].*") &&
+                    newPassword.matches(".*[a-z].*") &&
+                    newPassword.matches(".*[0-9].*") &&
+                    newPassword.matches(".*[^A-Za-z0-9].*")){
+                setPassword(newPassword);
+                System.out.println("Password changed successfully");
+            }else{
+                System.out.println("New password doesn't meet the required criteria. Please try again.");
             }
+        }else{
+            System.out.println("Old password is incorrect. Please try again.");
         }
-
 
     }
 }
